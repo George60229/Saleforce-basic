@@ -5,12 +5,15 @@ public class TaskTriggerHelper {
 
     public static void handleBeforeUpdate(List<Task> oldTasks, List<Task> newTasks) {
 
-        for (Task task : newTasks) {
+        /**
+         *  for (Task task : newTasks) {
             if(task.Subject.equals('Test UI Name')){
                 task.addError('This subject cannot be changed');
             }
             task.Subject = 'Test Name'; 
         }
+         */
+       
     }
 
     public static void handleBeforeDelete(List<Task> oldTasks) {

@@ -10,28 +10,30 @@ public class AccountTriggerHelper {
     public static void handleBeforeUpdate(List<Account> oldAccounts, List<Account> newAccounts) {
         
         //12. triggers and order execution 
-            Integer counter=0;
+        /**
+         *  Integer counter=0;
             
             for (Account account:newAccounts){
                 account.Description='Test'+counter;
                 counter++;
             }
+         */
+           
             
 
-            /**
-             * 
-             * Integer counter=0;
+           
+             Integer counter=0;
             List<Account> accs=new List<Account>();
             for (Account account:newAccounts){
                 account.Description='Test'+counter;
                 accs.add(new Account(
                     Id=account.Id,
+                    Support_Tier__c='Bronze',
                     Name=account.Name+' update'));
+
                 counter++;
             }
-                update accs;
-             * 
-             */
+             
         }
         
 
@@ -44,7 +46,8 @@ public class AccountTriggerHelper {
     }
 
     public static void handleAfterUpdate(List<Account> oldAccounts, List<Account> newAccounts) {
-        if (!isInUpdateProcess) {
+        /**
+         *  if (!isInUpdateProcess) {
             List<Task> tasks = new List<Task>();
             List<Account> accountsToUpdate = new List<Account>();
             isInUpdateProcess = true;
@@ -66,6 +69,10 @@ public class AccountTriggerHelper {
             Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
             isInUpdateProcess = false;
         }
+         */
+        
+        
+       
     }
 
     public static void handleAfterDelete(List<Account> oldAccounts) {

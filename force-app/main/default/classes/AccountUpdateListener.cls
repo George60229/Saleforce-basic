@@ -21,7 +21,6 @@ public with sharing class AccountUpdateListener {
         if(tasksToUpdate.size()>0){
             User randomUser = getRandomActiveUser();
             updateTaskDetails(tasksToUpdate, randomUser.Id);
-            sendTaskDetailsByEmail(randomUser.Id,tasksToUpdate);
             update tasksToUpdate;
         }
         
@@ -55,6 +54,7 @@ public with sharing class AccountUpdateListener {
         mail.setPlainTextBody(emailBody);
         mail.setTargetObjectId(userId);
         mail.setTreatTargetObjectAsRecipient(true);
+
         Messaging.SendEmailResult[] results = Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
     }
 }
